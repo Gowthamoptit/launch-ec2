@@ -1,0 +1,19 @@
+---
+- name: ec2 launcher
+  hosts: localhost
+  connection: local
+  tasks:
+    - pip:
+        name: boto
+    - name: launching ec2
+      ec2:
+        instance_type: t2.micro
+        key_name: tomcat
+        image: ami-0fa49cc9dc8d62c84
+        region: us-east-2
+        group: default
+        count: 1
+        vpc_subnet_id: subnet-090a90ba75ea92052
+        wait: yes
+        assign_public_ip: yes
+...
