@@ -2,7 +2,6 @@
 - name: ec2 launcher
   hosts: localhost
   connection: local
-  vars_files: secrets.yml
   tasks:
     - pip:
         name: boto
