@@ -2,19 +2,22 @@
 - name: ec2 launcher
   hosts: localhost
   connection: local
+  vars:
+      instance_type: t2.micro
+      key_pair: tomcat
+      image_id: ami-0fa49cc9dc8d62c84
+      vpc_subnet_id: subnet-090a90ba75ea92052
+      region: us-east-2
   tasks:
-    - pip:
-        name: boto
     - name: launching ec2
       ec2:
-        instance_type: t2.micro
-        key_name: tomcat
-        image: ami-0fa49cc9dc8d62c84
-        region: us-east-2
+        instance_type: "{{ instance_type }}"
+        key_name: "{{ key_pair }}"
+        image: "{{ image_id }}"
+        region: "{{ region }}"
         group: default
         count: 1
-        vpc_subnet_id: subnet-090a90ba75ea92052
+        vpc_subnet_id: "{{ vpc_subnet_id }}"
         wait: yes
         assign_public_ip: yes
 ...
-
