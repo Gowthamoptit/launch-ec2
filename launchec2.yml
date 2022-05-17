@@ -1,6 +1,6 @@
 ---
 - name: ec2 launcher
-  hosts: localhost
+  hosts: webservers
   connection: local
   vars:
       instance_type: t2.micro
