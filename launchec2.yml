@@ -22,4 +22,5 @@
         assign_public_ip: yes
         state: "{{ state }}"
         instance_tags: {"key":"value"}
+        instance_ID: "{ instance_ID }"
 ...
