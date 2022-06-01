@@ -11,7 +11,7 @@
       region: us-east-2
       key: test
       value: test
-      state: stopped
+      state: running
   tasks:
     - name: launching ec2
       ec2:
