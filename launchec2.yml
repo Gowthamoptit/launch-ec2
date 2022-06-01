@@ -6,24 +6,24 @@
   vars:
       instance_type: t2.micro
       key_pair: tomcat
+      image_id: ami-0fa49cc9dc8d62c84
+      vpc_subnet_id: subnet-090a90ba75ea92052
       region: us-east-2
       key: test
       value: test
-      image: ami-0fa49cc9dc8d62c84
-      instance_ids: i-08a193120195b0cd3
-      vpc_subnet_id: subnet-090a90ba75ea92052
+      state: stopped
   tasks:
     - name: launching ec2
       ec2:
         instance_type: "{{ instance_type }}"
         key_name: "{{ key_pair }}"
+        image: "{{ image_id }}"
         region: "{{ region }}"
+        group: default
         count: 1
         vpc_subnet_id: "{{ vpc_subnet_id }}"
-        image: "{{ image }}"
         wait: yes
         assign_public_ip: yes
         state: "{{ state }}"
         instance_tags: {"key":"value"}
-        instance_ids: "{{ instance_ids }}"
 ...
