@@ -7,6 +7,10 @@
       instance_type: t2.micro
       key_pair: tomcat
       region: us-east-2
+      key: test
+      value: test
+      image_id: ami-0fa49cc9dc8d62c84
+      instance_ids: i-08a193120195b0cd3
   tasks:
     - name: launching ec2
       ec2:
@@ -15,6 +19,7 @@
         region: "{{ region }}"
         count: 1
         vpc_subnet_id: "{{ vpc_subnet_id }}"
+        image_id: "{{ image_id }}"
         wait: yes
         assign_public_ip: yes
         state: "{{ state }}"
