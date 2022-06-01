@@ -12,7 +12,6 @@
       ec2:
         instance_type: "{{ instance_type }}"
         key_name: "{{ key_pair }}"
-        image: "{{ image_id }}"
         region: "{{ region }}"
         count: 1
         vpc_subnet_id: "{{ vpc_subnet_id }}"
