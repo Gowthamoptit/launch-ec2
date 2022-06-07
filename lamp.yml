@@ -9,7 +9,7 @@
       name:
         - httpd
         - mariadb-server
-        - mysql-community-client
+        - mysqld
         - php
         - php-mysql
       state: installed
