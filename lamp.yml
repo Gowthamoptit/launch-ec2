@@ -1,7 +1,7 @@
 ---
 - name: installing lamp
   hosts: localhost
-  gather_fact: true
+  gather_facts: true
   become: true
   tasks:
   - name: Installing Apache, MYSQL & PHP
