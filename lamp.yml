@@ -25,7 +25,7 @@
       state: started
   - name: Copying php file in the /var/www/html
     copy:
-      src: 
+      src: index.php
       dest: /var/www/html/index.php
       force: yes
       
