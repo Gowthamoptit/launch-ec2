@@ -1,6 +1,6 @@
 ---
 - name: ec2 launcher
-  hosts: webservers
+  hosts: localhost
   connection: local
   become: true
   vars:
