@@ -1,6 +1,6 @@
 ---
 - name: installing lamp
-  hosts: localhost
+  hosts: webservers
   gather_facts: true
   become: true
   tasks:
@@ -9,18 +9,18 @@
       name:
         - httpd
         - mariadb-server
-        - mysqld
+        - mariadb-devel
         - php
         - php-mysql
       state: installed
-  - name: Enabling httpd service and start the service 
+  - name: Enabling httpd service and start the service
     service:
       name: httpd
       enabled: yes
       state: started
-  - name: Enabling mysql service and start the service 
+  - name: Enabling mysql service and start the service
     service:
-      name: mysqld
+      name: mariadb
       enabled: yes
       state: started
   - name: Copying php file in the /var/www/html
@@ -28,12 +28,6 @@
       src: /etc/ansible/index.php
       dest: /var/www/html/index.php
       force: yes
-      
-    notify: 
-      - restarted httpd service 
-  handlers:
-  - name: restart the httpd service 
-    service: 
-      name: httpd
-      state: restarted
+
 ...
+
