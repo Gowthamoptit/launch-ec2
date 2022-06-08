@@ -28,6 +28,6 @@
       src: index.php
       dest: /var/www/html/index.php
       force: yes
-     when: "{{ hosts }}"
+     when: {{ hosts }}
 ...
 
