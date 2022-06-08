@@ -18,7 +18,7 @@
         key_name: "{{ key_pair }}"
         image: "{{ image_id }}"
         region: "{{ region }}"
-        group: default
+        group: launch-wizard-1
         count: 1
         vpc_subnet_id: "{{ vpc_subnet_id }}"
         wait: yes
