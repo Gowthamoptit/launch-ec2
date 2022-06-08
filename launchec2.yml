@@ -25,28 +25,12 @@
         assign_public_ip: yes
         state: "{{ state }}"
         instance_tags: {"key":"value"}
-    - name: Installing Apache, MYSQL & PHP
-      yum:
-        name:
-         - httpd
-         - mariadb-server
-         - mariadb-devel
-         - php
-         - php-mysql
-        state: installed
-    - name: Enabling httpd service and start the service
-      service:
-        name: httpd
-        enabled: yes
-        state: started
-    - name: Enabling mysql service and start the service
-      service:
-        name: mariadb
-        enabled: yes
-        state: started
-    - name: Copying php file in the /var/www/html
-      copy:
-        src: index.php
-        dest: /var/www/html/index.php
-        force: yes    
+      register: assign_public_ip
+    - name: Print the output of public_ip
+      debug: var= assign_public_ip.stdout_lines
+      
+    - set_fact:
+        public_ip={{ assign_public_ip.stdout_lines }}
+    - debug: var=public_ip
+  
 ...
