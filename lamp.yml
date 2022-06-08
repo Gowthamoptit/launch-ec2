@@ -1,6 +1,6 @@
 ---
 - name: installing lamp
-  hosts: "{{ webservers }}"
+  hosts: webservers
   gather_facts: true
   become: true
   tasks:
@@ -28,6 +28,6 @@
       src: index.php
       dest: /var/www/html/index.php
       force: yes
-
+    when: '{{ webservers }}"
 ...
 
