@@ -28,6 +28,5 @@
       src: index.php
       dest: /var/www/html/index.php
       force: yes
-     when: ansible_facts['address'] == {{ 'hosts' }}
 ...
 
