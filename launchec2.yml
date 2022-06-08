@@ -25,12 +25,4 @@
         assign_public_ip: yes
         state: "{{ state }}"
         instance_tags: {"key":"value"}
-      register: assign_public_ip
-    - name: Print the output of public_ip
-      debug: var= assign_public_ip.stdout_lines
-      
-    - set_fact:
-        public_ip={{ assign_public_ip.stdout_lines }}
-    - debug: var=public_ip
-  
 ...
