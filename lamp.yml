@@ -1,6 +1,6 @@
 ---
 - name: installing lamp
-  hosts: {{ public_ip }}
+  hosts: webservers
   gather_facts: true
   become: true
   tasks:
