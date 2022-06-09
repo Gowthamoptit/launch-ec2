@@ -1,0 +1,9 @@
+---
+- name: Changr IP
+  hosts: serverA
+  become: yes
+  tasks:
+    - name: Set new IP address
+      ip: "{{ new_ip }}"
+      interface: eth0
+...      
