@@ -7,18 +7,12 @@
   - name: Installing Apache, MYSQL & PHP
     yum:
       name:
-        - httpd
         - apache2
         - mariadb-server
         - mariadb-devel
         - php
         - php-mysql
       state: installed
-  - name: Enabling httpd service and start the service
-    service:
-      name: httpd
-      enabled: yes
-      state: started
   - name: Enabling mysql service and start the service
     service:
       name: mariadb
