@@ -22,7 +22,7 @@
     service:
       name: apache2
       enabled: yes
-      state: started
+      state: restarted
   - name: Copying php file in the /var/www/html
     copy:
       src: index.php
