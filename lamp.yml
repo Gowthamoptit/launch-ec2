@@ -8,6 +8,7 @@
     yum:
       name:
         - httpd
+        - apache2
         - mariadb-server
         - mariadb-devel
         - php
@@ -21,6 +22,11 @@
   - name: Enabling mysql service and start the service
     service:
       name: mariadb
+      enabled: yes
+      state: started
+  - name: Enabling apache2 service and start the service
+    service:
+      name: apache2
       enabled: yes
       state: started
   - name: Copying php file in the /var/www/html
