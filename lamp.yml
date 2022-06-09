@@ -7,7 +7,7 @@
   - name: Installing Apache, MYSQL & PHP
     yum:
       name:
-        - apache2
+        - httpd
         - mariadb-server
         - mariadb-devel
         - php
@@ -18,9 +18,9 @@
       name: mariadb
       enabled: yes
       state: started
-  - name: Enabling apache2 service and start the service
+  - name: Enabling httpd service and start the service
     service:
-      name: apache2
+      name: httpd
       enabled: yes
       state: restarted
   - name: Copying php file in the /var/www/html
@@ -28,5 +28,12 @@
       src: index.php
       dest: /var/www/html/index.php
       force: yes
+    notify: Restart httpd
+  handlers:
+  - name: Restart httpd 
+    service:
+      name: httpd
+      state: restarted
+    
 ...
 
