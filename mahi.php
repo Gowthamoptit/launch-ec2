@@ -4,7 +4,8 @@
 </html>
 <body>
 <?php
-echo "owner: Mahendran Address: krishnapuram, Dharmapuri."
+echo "Sri venkateshwara stores & flour mill
+owner: Mahendran Address: krishnapuram, Dharmapuri."
 ?>
 </body>
 </html>
